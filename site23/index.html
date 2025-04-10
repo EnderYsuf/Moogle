@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wakepedia</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="navbar">
+        <a href="#">Home</a>
+        <a href="#about">About</a>
+    </div>
+
+    <div class="container">
+        <h1 id="page-title">Wakepedia</h1>
+        <input type="text" id="search" placeholder="Enter a topic...">
+        <button onclick="startSearch()">Search</button>
+        <div id="wikiContent"></div>
+    </div>
+    <h2 id="pageTitle" style="padding-left: 20px"></h2>
+    <div id="content" style="display: none">
+    </div>
+
+    <div id="about" class="footer">
+        <p>Wakepedia is a parody website and is not a reliable source of information.</p>
+    </div>
+
+    <script src="seedrandom.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

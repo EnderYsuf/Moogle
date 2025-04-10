@@ -1,0 +1,107 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Main container with a glassy effect */
+.container {
+    background: rgba(255, 255, 255, 0.85); /* Glass-like transparency */
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(20px); /* Glassmorphism effect */
+    text-align: center;
+    width: 350px;
+    max-height: 500px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    overflow: hidden;
+}
+
+/* Question styling */
+.question p {
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 25px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* Button styling */
+.answer {
+    background: linear-gradient(145deg, #00aaff, #005577); /* Soft blue gradient */
+    border: none;
+    color: white;
+    font-size: 1.1rem;
+    padding: 12px 0;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out, box-shadow 0.3s ease-in-out;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.answer:hover {
+    background: linear-gradient(145deg, #005577, #00aaff); /* Reverse gradient on hover */
+    transform: translateY(-5px); /* Lift the button slightly */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Add shadow for hover effect */
+}
+
+.answer:active {
+    transform: translateY(2px); /* Subtle push when clicked */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Question log styles */
+.question-log {
+    margin-top: 25px;
+    text-align: left;
+    font-size: 1rem;
+    color: #333;
+    overflow-y: auto;
+    max-height: 150px;  /* Add a max-height */
+}
+
+.question-log h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #444;
+}
+
+#logList {
+    list-style: none;
+    padding: 0;
+}
+
+#logList li {
+    margin-bottom: 8px;
+    background: rgba(0, 0, 0, 0.05);
+    padding: 8px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 400px) {
+    .container {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .question p {
+        font-size: 1.2rem;
+    }
+}

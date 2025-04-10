@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questions</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="icon.png">
+</head>
+<body>
+    <div class="container">
+        <div class="question">
+            <p id="question">Is this a question?</p>
+        </div>
+        <div class="answers">
+            <button class="answer" id="answer1" onclick="answer(1)">Yes</button>
+            <button class="answer" id="answer2" onclick="answer(2)">No</button>
+
+        </div>
+        <div class="question-log">
+            <h3>Your answers:</h3>
+            <ul id="logList"></ul>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>

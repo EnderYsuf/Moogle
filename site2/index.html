@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excuse Generator</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="icon.png">
+</head>
+<body>
+
+    <div class="container">
+        <h2>Excuse Generator</h2>
+        
+        <label for="action">What didn't you do or did something wrong?</label>
+        <select id="action">
+            <option value="I was late">I was late</option>
+            <option value="I didn’t do my homework">I didn’t do my homework</option>
+            <option value="I missed the meeting">I missed the meeting</option>
+            <option value="I didn’t submit the report">I didn’t submit the report</option>
+            <option value="I didn’t clean my room">I didn’t clean my room</option>
+            <option value="I forgot to reply to emails">I forgot to reply to emails</option>
+            <option value="I didn't cook dinner">I didn't cook dinner</option>
+            <option value="I didn't go to the gym">I didn't go to the gym</option>
+            <option value="I didn't wake up on time">I didn't wake up on time</option>
+            <option value="I didn't call my friend back">I didn't call my friend back</option>
+            <option value="I didn't study for the test">I didn't study for the test</option>
+            <option value="I didn't water the plants">I didn't water the plants</option>
+        </select>
+
+        <label for="blame">Who’s fault is it?</label>
+        <select id="blame">
+            <option value="My alarm didn’t go off">My alarm</option>
+            <option value="Traffic was terrible">Traffic</option>
+            <option value="Public transport failed me">Public transport</option>
+            <option value="I lost track of time">Me losing track of time</option>
+            <option value="I fell back asleep">Me sleeping</option>
+            <option value="My computer crashed">My computer</option>
+            <option value="My dog ate it">My dog</option>
+            <option value="Aliens took it">Aliens</option>
+            <option value="I was in the wrong meeting">Me getting to the wrong meeting</option>
+            <option value="The Wi-Fi went out">Wi-Fi</option>
+            <option value="I spilled coffee on my laptop">Me spilling coffee on my laptop</option>
+            <option value="I was conducting an experiment">Me conducting an experiment</option>
+            <option value="My internet provider had an outage">My internet provider</option>
+            <option value="My car wouldn’t start">My car</option>
+            <option value="There was a power outage">Power outage</option>
+            <option value="My phone battery died">My phone</option>
+            <option value="I was kidnapped by ninjas">Me being kidnapped by ninjas</option>
+            <option value="The universe was against me">The universe</option>
+            <option value="I got lost on the way">Me getting lost on the way</option>
+            <option value="A bird stole it">A bird</option>
+            <option value="It was too cold to function">Cold</option>
+            <option value="My cat sat on my keyboard">My cat</option>
+        </select>
+
+        <button onclick="generateExcuse()">Generate Excuse</button>
+        <br>
+        <p id="excuse"></p>
+    </div>
+
+    <script src="main.js"></script>
+
+</body>
+</html>

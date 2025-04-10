@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click Me!</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="main.js" defer></script>
+    <script src="dialog.js" defer></script>
+    <link rel="icon" type="image/x-icon" href="icon.png">
+</head>
+<body>
+    <canvas id="matrix" class="matrix"></canvas>
+    <div id="achieve" class="achievements">
+        <h4 id="achieveTitle">Title</h4><br>
+        <p id="achieveDesc">Description</p>
+    </div>
+    <div id="loading"></div>
+    <div style="position: fixed; padding: 2px">
+        <p id="eventCount" style="color: white; background-color: black">0</p>
+    </div>
+    <div id="click" class="click spinner">
+        <p onclick="clicking()" id="button">Click me!</p>
+    </div>
+    <p id="quotes" style="text-align: center; z-index: 22"></p>
+    <div class="progress-container" id="progressWindow">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+    <p style="text-align: center; color: rgba(120,120,120,0.3); bottom: 0px" id="welcome">
+        With &lt;3 from EnderYsuf!
+    </p>
+    <div id="eventListWindow" class="eventList spinner">
+        <p id="toDelete" style="color: white">Click the button for something</p>
+        <p id="eventList" style="color: white"></p>
+    </div>
+
+    <!-- Modal Dialog -->
+    <div id="dialog" class="modal">
+        <div class="modal-content">
+            <p id="dialogText">Press the buttom below if you wish to continue!</p>
+            <p id="dialogButton" class="button" onclick="continueEvent()">Continue</button>
+        </div>
+    </div>
+    <div class="fake-virus" id="virusWindow">
+        <h2>⚠ Virus Detected!</h2>
+        <p id="virusText">Your system detected it's illnes.</p><br><p>Press on the button to cure it!</p>
+        <button onclick="removeVirus()">Cure</button>
+    </div>
+    <div id="snakeWindow" class="snakeWindow" style="position: fixed; border: 2px solid black">
+        <canvas id="gameCanvas" class="gameCanvas" width="400" height="400" style="border: 2px solid black"></canvas>
+        <div class="controls">
+            <button class="up" id="up">↑</button>
+            <button class="right" id="right">→</button>
+            <button class="down" id="down">↓</button>
+            <button class="left" id="left">←</button>
+        </div>
+        <p id="goal" style="float: right">Goal: 0</p>
+        <p id="points" style="float left">Points: 0</p>
+    </div>
+    <!--<div id="dinoWindow" class="dinoWindow" style="display: none; position: fixed; border: 2px solid black">
+        <canvas id="game-dino" class="gameCanvas" style="border-bottom: 2px solid black; width: 480px; height: 200px"></canvas>
+        <p id="dinoScore" style="float: left">Score: 0</p>
+        <p id="dinoGoal" style="float: right">Goal: 0</p>
+    </div>-->
+    <div id="captchaWindow" class="captcha">
+        <canvas id="captchaCanvas" width="200" height="60" style="border: 2px solid black"></canvas><br>
+        <input type="text" id="captchaInput" placeholder="Input the code from picture">
+        <button id="checkCaptcha">Check</button>
+        <p id="captchaMessage"></p>
+        <button onclick="generateValues()" style="background-color: blue; color: white">Update captcha</button>
+    </div>
+    <div class="rick" id="rick">
+        <p id="rickText">You almost here!</p>
+        <p onclick="ricked()" class="rickButton" id="rickButton">Finish</p>
+        <p onclick="hideRicked()" id="rickDismiss" style="rgba(125,125,125,0.4)">Dismiss</p>
+        <img src="images/rick.gif" width="240px" height="240px" style="display: none" id="rickImg">
+    </div>
+    <div class="jokeWindow" id="jokeWindow">
+        <h3>Random joke!</h3>
+        <p id="jokes"></p>
+        <p onclick="closeJokes()" class="jokeButton" id="jokeButton">Hahaha its so funny</p>
+    </div>
+    <img id="snow" style="display: none; width: 100%; height: 100%; z-index: 1005; position: fixed; top: 0; left: 0; pointer-events: none;"
+        src="images/snow.gif">
+    <div id="flash"></div>
+    <div id="overlay"></div>
+    <div id="overlayLoading"></div>
+    <div id="captchaOverlay"></div>
+    <div id="bluring"></div>
+    <div id="night"></div>
+    <div id="crt" class="old-screen"></div>
+    <div class="ripple-container"></div>
+    <div id="darkFlash"></div>
+    <div id="updateWindow">
+        <div class="errorWindow" id="error">
+            <p>An error occured while installing update!</p>
+            <p onclick="updateErrorFunc()" class="errorButton">Ok</p>
+        </div>
+        <h3>Button is updating, don't close the window!</h3>
+        <div class="progress-containerUpdate" id="progressWindowUpdate">
+            <div class="progress-barUpdate" id="progressBarUpdate"></div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+/* Basic styling for the body */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #e9eff1; /* Subtle light gray-blue background */
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container to center the canvas */
+.container {
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 15px; /* Rounded corners */
+}
+
+h3 {
+    color: #00C8FF;
+    text-align: center;
+}
+
+canvas {
+    display: block;
+    border: none;
+    border-radius: 10px; /* Rounded corners for the canvas */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    transition: transform 0.3s ease; /* Smooth transition for hover effect */
+}
+
+@media (max-width: 480px) {
+    canvas {
+        width: 100%;
+        height: auto;
+    }
+}

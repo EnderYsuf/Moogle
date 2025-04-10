@@ -1,0 +1,671 @@
+* {
+    transition: 0.5s ease-in-out;
+    user-select: none;
+    content: "";
+    overflow: auto;
+}
+
+body {
+    background-size: 100% 100%;
+}
+
+.matrix {
+    display: none;
+    background-color: white;
+    z-index: -1;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.achievements {
+    position: fixed;
+    right: -100%;
+    display: block;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 5px;
+    width: 400px;
+    height: 50px;
+}
+
+.achievements h4 {
+    position: absolute;
+    top: -2px;
+}
+
+.achievements p {
+    position: absolute;
+    top: 17px;
+    float: left;
+}
+
+.captcha {
+    border: 2px solid black;
+    border-radius: 10px;
+    width: 220px;
+    padding: 10px;
+    margin: auto;
+    text-align: center;
+    background-color: #f8f8f8;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+    font-family: Arial, sans-serif;
+    position: fixed;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    display: none;
+    z-index: 999;
+}
+
+.captcha p {
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+.captcha canvas {
+    border: 1px solid gray;
+    background-color: white;
+}
+
+.captcha input {
+    margin-top: 5px;
+    padding: 5px;
+    width: 90%;
+    border: 1px solid gray;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.captcha button {
+    margin-top: 8px;
+    padding: 5px 10px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.captcha button:hover {
+    background-color: #0056b3;
+}
+
+.click {
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically */
+    height: 70vh; /* Full viewport height */
+}
+
+.progress-container {
+    display: none;
+    width: 100%;
+    background-color: #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    width: 0%;
+    height: 20px;
+    background-color: #4CAF50;
+    text-align: center;
+    line-height: 20px;
+    color: white;
+    transition: width 0.5s ease-in-out;
+}
+
+.snakeWindow {
+    background-color: white;
+    display: none;
+    z-index: 200;
+    top: 5%;
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically */
+}
+
+.dinoWindow {
+    width: 95%;
+    background-color: white;
+    display: block;
+    z-index: 200;
+    top: 5%;
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically */
+}
+.controls {
+    position: relative;
+    width: auto;
+    height: 150px;
+    width: 150px;
+    border: 1px solid black;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.up, .right, .down, .left {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+}
+
+.up {
+    top: 0;
+    left: 50px;
+}
+
+.right {
+    top: 50px;
+    left: 100px;
+}
+
+.down {
+    top: 100px;
+    left: 50px;
+}
+
+.left {
+    top: 50px;
+    left: 0;
+}
+.eventList {
+    padding: 5px;
+    bottom: -10%;
+    height: 17%;
+    overflow-y: hidden;
+    border: 2px solid black;
+    border-radius: 5px;
+    background-color: #444;
+    z-index: 0;
+}
+
+.eventList * {
+    z-index: 1;
+}
+
+.click p, .jokeButton {
+    border: 2px solid black;
+    border-radius: 3px;
+    padding: 5px;
+    background-color: white;
+    z-index: 20;
+    text-align: center;
+}
+
+p.f {
+    color: yellow;
+    background-color: black;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border: 2px solid black;
+    z-index: 1000;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.modal-content {
+    text-align: center;
+}
+
+.modal .button {
+    margin: 5px;
+    padding: 10px;
+    border: 2px solid black;
+}
+
+#overlay {
+    display: none; /* Initially hidden */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+    z-index: 997; /* Ensure it covers everything */
+}
+
+#overlayLoading {
+    display: none; /* Initially hidden */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.0); /* Semi-transparent black */
+    z-index: 1000; /* Ensure it covers everything */
+}
+
+#loading {
+    transition: 0s ease-in-out;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 150vw;
+    background: white; /* Semi-transparent black */
+    z-index: 1001; /* Ensure it covers everything */
+}
+
+#captchaOverlay {
+    display: none; /* Initially hidden */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.0); /* Semi-transparent black */
+    z-index: 998; /* Ensure it covers everything */
+}
+
+.fake-virus {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 350px;
+    background: white;
+    color: black;
+    padding: 20px;
+    transform: translate(-50%, -50%);
+    font-size: 18px;
+    border: 3px solid red;
+    box-shadow: 0 0 15px red;
+    text-align: left;
+    display: none;
+    z-index: 1001;
+}
+
+.fake-virus h2 {
+    color: red;
+    margin: 0 0 10px;
+}
+
+.fake-virus p {
+    font-size: 16px;
+}
+
+.fake-virus button {
+    padding: 5px 10px;
+    font-size: 14px;
+    border: none;
+    background: red;
+    color: white;
+    cursor: pointer;
+}
+
+.rick {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: auto;
+    background: white;
+    color: black;
+    padding: 20px;
+    transform: translate(-50%, -50%);
+    font-size: 18px;
+    border: 3px solid black;
+    border-radius: 5px;
+    box-shadow: 0 0 15px black;
+    text-align: left;
+    text-align: center;
+    z-index: 40;
+}
+
+.rickButton {
+    transition: 0s;
+    border: 2px solid black;
+    border-radius: 3px;
+    padding: 5px;
+    background-color: white;
+    z-index: 20;
+    text-align: center;
+}
+
+.rickButton:hover {
+    background-color: gray;
+}
+
+#flash {
+    display: none; /* Initially hidden */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: white; /* Semi-transparent black */
+    z-index: 1005; /* Ensure it covers everything */
+}
+
+#bluring {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px); /* Safari support */
+    background-color: rgba(255, 255, 255, 0.01); /* Make blur visible */
+    z-index: 1006;
+    pointer-events: none; /* Ensure it doesn’t block interactions */
+}
+
+#night {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    opacity: 0.0;/* Make blur visible */
+    z-index: 1005;
+    pointer-events: none; /* Ensure it doesn’t block interactions */
+}
+
+.old-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 10000;
+    display: none; /* Ensure it's visible */
+
+    background: repeating-linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.2) 0px,
+        rgba(0, 0, 0, 0.2) 2px,
+        transparent 4px
+    ), 
+    url('images/noisy.png'); /* Use a local noise image */
+    
+    animation: flicker 0.2s infinite alternate;
+    opacity: 0.8;
+}
+
+/* Flickering animation */
+@keyframes flicker {
+    0% { opacity: 0.9; }
+    50% { opacity: 0.85; }
+    100% { opacity: 0.9; }
+}
+
+.ripple-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+.ripple {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    transform: scale(0);
+    animation: ripple-animation 1s linear;
+}
+
+@keyframes ripple-animation {
+    to {
+        transform: scale(20);
+        opacity: 0;
+    }
+}
+
+#darkFlash {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;/* Make blur visible */
+    z-index: 1005;
+    pointer-events: none; /* Ensure it doesn’t block interactions */
+}
+
+.jokeWindow {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: auto;
+    background: white;
+    color: black;
+    padding: 20px;
+    transform: translate(-50%, -50%);
+    font-size: 18px;
+    border: 3px solid black;
+    border-radius: 5px;
+    box-shadow: 0 0 15px black;
+    text-align: center;
+    z-index: 40;
+}
+
+#updateWindow {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: white;/* Make blur visible */
+    z-index: 5000;
+}
+
+.progress-containerUpdate {
+    display: block;
+    margin-left: 2.5%;
+    transform: translate(0, -50%);
+    width: 95%;
+    background-color: #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#updateWindow h3 {
+    text-align: center;
+    margin-top: 45vh;
+}
+
+.progress-barUpdate {
+    width: 0%;
+    height: 20px;
+    background-color: #00BBFF;
+    text-align: center;
+    line-height: 20px;
+    color: white;
+    transition: width 0.5s ease-in-out;
+}
+
+.errorWindow {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: auto;
+    background: white;
+    color: black;
+    padding: 20px;
+    transform: translate(-50%, -50%);
+    font-size: 18px;
+    border: 3px solid black;
+    border-radius: 5px;
+    box-shadow: 0 0 15px black;
+    text-align: center;
+    z-index: 40;
+}
+
+.errorButton {
+    transition: 0s;
+    border: 2px solid black;
+    border-radius: 3px;
+    padding: 5px;
+    background-color: white;
+    z-index: 20;
+    text-align: center;
+}
+
+/* Matrix Effect */
+.retro-mode #matrix {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+/* 3D Buttons */
+.retro-mode #button {
+    background: linear-gradient(to bottom, #ff0, #cc0);
+    padding: 5px 10px;
+    font-weight: bold;
+    border: 2px outset #ff0;
+    cursor: pointer;
+    text-shadow: 1px 1px 2px black;
+}
+
+.retro-mode #button:hover {
+    background: linear-gradient(to bottom, #cc0, #ff0);
+    border: 2px inset #ff0;
+}
+
+.retro-mode #button {
+    font-size: 24px;
+    color: cyan;
+    text-shadow: 2px 2px 5px black;
+    cursor: pointer;
+}
+
+/*event list*/
+.retro-mode .eventList {
+    border-radius: 0px;
+    border: 0px;
+}
+
+/* Achievements */
+.retro-mode .achievements {
+    border: 3px dashed #ff00ff;
+    background: black;
+    color: lime;
+    padding: 10px;
+    margin: 10px auto;
+    width: 250px;
+    font-family: 'MS Sans Serif', sans-serif;
+}
+
+/* Progress Bar */
+.retro-mode .progress-container {
+    background: black;
+    border: 2px solid white;
+    width: 300px;
+    height: 20px;
+    margin: auto;
+}
+
+.retro-mode .progress-bar {
+    background: lime;
+    height: 100%;
+    width: 0%;
+    transition: width 0.5s;
+}
+
+/* Dialog Windows */
+.retro-mode .modal {
+    position: fixed;
+    background: blue;
+    border: 3px ridge white;
+    width: 300px;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -30%);
+    padding: 10px;
+    color: white;
+    box-shadow: 5px 5px 10px black;
+}
+
+/* Fake Virus Alert */
+.retro-mode .fake-virus {
+    position: fixed;
+    top: 10%;
+    left: 10%;
+    width: 300px;
+    background: red;
+    border: 5px double yellow;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+    box-shadow: 0px 0px 10px white;
+}
+
+/* Snake Game */
+.retro-mode .snakeWindow {
+    background: black;
+    border: 4px solid lime;
+    color: white;
+    padding: 10px;
+    font-family: 'Courier New', monospace;
+}
+
+/* Captcha Window */
+.retro-mode .captcha {
+    background: darkblue;
+    border: 3px solid cyan;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+/* Rickroll Alert */
+.retro-mode .rick {
+    background: black;
+    border: 5px solid purple;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+/* Joke Window */
+.retro-mode .jokeWindow {
+    background: #0000FF;
+    border: 3px dashed yellow;
+    color: white;
+    padding: 15px;
+}
+
+/* Error Messages */
+.retro-mode .errorWindow {
+    background: red;
+    border: 3px solid yellow;
+    color: white;
+    padding: 10px;
+    font-weight: bold;
+}
+
+@keyframes neonGlow {
+    0% { box-shadow: 0 0 10px #0ff, 0 0 20px #0ff; }
+    50% { box-shadow: 0 0 20px #0ff, 0 0 40px #0ff; }
+    100% { box-shadow: 0 0 10px #0ff, 0 0 20px #0ff; }
+}
+
+.neon-border {
+    box-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+    animation: neonGlow 1.5s infinite alternate;
+}

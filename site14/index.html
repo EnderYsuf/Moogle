@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Potato World</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="icon.png">
+</head>
+<body>
+    <header>
+        <h1>Potato World</h1>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#types">Types</a></li>
+                <li><a href="#recipes">Recipes</a></li>
+                <li><a href="#fun-facts">Fun Facts</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#history">History</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <div id="content">
+        <section id="about">
+            <h2>About Potatoes</h2>
+            <p>Potatoes are one of the most versatile and beloved vegetables in the world. They come in many shapes and sizes and can be cooked in numerous ways.</p>
+            <img src="potato-field.jpg" alt="Potato field" width="600">
+        </section>
+        
+        <section id="types">
+            <h2>Types of Potatoes</h2>
+            <ul>
+                <li>Russet Potatoes - Great for baking and frying.</li>
+                <li>Red Potatoes - Perfect for boiling and roasting.</li>
+                <li>Yukon Gold - Ideal for mashed potatoes.</li>
+                <li>Fingerling Potatoes - Excellent for roasting.</li>
+                <li>Sweet Potatoes - A nutritious and delicious option.</li>
+            </ul>
+            <img src="potato-varieties.jpg" alt="Different types of potatoes" width="600">
+        </section>
+        
+        <section id="recipes">
+            <h2>Delicious Potato Recipes</h2>
+            <p>Try these amazing potato dishes:</p>
+            <ul>
+                <li><strong>Mashed Potatoes</strong> - Creamy and buttery.</li>
+                <li><strong>French Fries</strong> - Crispy and golden.</li>
+                <li><strong>Baked Potatoes</strong> - Soft inside, crispy outside.</li>
+                <li><strong>Potato Salad</strong> - Perfect for picnics.</li>
+                <li><strong>Hash Browns</strong> - A breakfast favorite.</li>
+            </ul>
+            <img src="potato-dishes.jpg" alt="Delicious potato dishes" width="600">
+        </section>
+        
+        <section id="fun-facts">
+            <h2>Fun Facts About Potatoes</h2>
+            <p>Did you know that potatoes were the first vegetable grown in space?</p>
+            <p>The average American eats about 124 pounds of potatoes per year!</p>
+            <p>Potatoes originated in South America and have been cultivated for over 7,000 years.</p>
+        </section>
+        
+        <section id="gallery">
+            <h2>Potato Gallery</h2>
+            <img src="potato-harvest.jpg" alt="Farmers harvesting potatoes" width="600">
+            <img src="potato-farm.jpg" alt="Potato farm landscape" width="600">
+        </section>
+        
+        <section id="history">
+            <h2>History of Potatoes</h2>
+            <p>Potatoes were first domesticated by the Inca people of Peru around 8,000 years ago. They were introduced to Europe in the 16th century by Spanish explorers and quickly became a staple food worldwide.</p>
+            <p>Today, potatoes are grown in over 100 countries and are a major source of nutrition.</p>
+        </section>
+        
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <p>Have any questions about potatoes? Reach out to us!</p>
+            <form>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <br>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+                <br>
+                <button type="submit">Send</button>
+            </form>
+        </section>
+    </div>
+    
+    <div id="error_window">
+        <h3 id="error">Error 001</h3>
+        <p id="error_desc"></p>
+    </div>
+    <div id="error_bg"></div>
+    <script src="main.js"></script>
+</body>
+</html>
