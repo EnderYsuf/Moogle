@@ -1,32 +1,31 @@
 const sites = [
-    { title: "Random Useful Facts", description: "Discover a collection of intriguing and practical facts that might surprise you and prove handy in everyday conversations.", folder: "site1", },
-    { title: "Excuse Generator", description: "Need a quick way out of a tricky situation? Generate creative, amusing, or even convincing excuses for any scenario.", folder: "site2", },
-    { title: "Advanced Name Generator", description: "Whether you're creating a character, brand, or project, this tool generates unique and memorable names tailored to your needs.", folder: "site3", },
-    { title: "Your Destiny", description: "Unravel the mysteries of your future! This website provides cryptic yet intriguing insights into what fate may hold for you.", folder: "site4", },
-    { title: "Philosophy Questions", description: "Challenge your mind with deep and thought-provoking philosophical questions that spark debates and expand perspectives.", folder: "site5", },
-    { title: "Which Vegetable Are You?", description: "Take this serious quiz to discover which vegetable best represents your personality based on your answers.", folder: "site6", },
-    { title: "Helpful Hint Generator", description: "Receive practical, witty, and unexpected hints for everyday life situations, ranging from productivity tips to clever life hacks.", folder: "site7", },
-    { title: "Forget-Me-Not AI", description: "An AI that helps you remember forgotten things.", folder: "site8", },
-    { title: "Click Me!", description: "A mysterious button. What happens when you click it? Only one way to find out!", folder: "site9", },
-    { title: "Rock", description: "rock", folder: "site10", },
-    { title: "Website", description: "A website about websites. Possibly the most self-aware web page you'll ever visit.", folder: "site11", },
-    { title: "Voting", description: "Cast your vote on the most serious and important topics. Democracy at its greatest!", folder: "site12", },
-    { title: "Award Winner", description: "An exclusive website dedicated to winners. What award did you win? Click to find out!", folder: "site13", },
-    { title: "Potato World", description: "A world dedicated entirely to potatoes. Learn everything you never knew you needed to know about this humble vegetable.", folder: "site14", },
-    { title: "Scroll to the Bottom", description: "Scroll down to the very bottom of the page and discover what awaits you there. Will you be surprised?", folder: "site15", },
-    { title: "Questions", description: "Get different questions and answer them, from the most trivial to the most profound. Become smarter with every question!", folder: "site16", },
-    { title: "Nothing", description: "There is nothing to see", folder: "site17", },
-    { title: "A Colorful Website", description: "Experience a vibrant explosion of colors that will dazzle your eyes and brighten your day.", folder: "site18", },
-    { title: "Diagram", description: "Explore diagram to visualize your ideas clearly.", folder: "site19", },
-    { title: "Tetris", description: "Play the classic game of Tetris and challenge your puzzle-solving skills.", folder: "site20", },
-    { title: "?", description: "?", folder: "site21", },
-    { title: "WakePedia", description: "", folder: "site23", }
+    { title: "Random Useful Facts", description: "Discover a collection of intriguing and practical facts that might surprise you and prove handy in everyday conversations.", folder: "site1" },
+    { title: "Excuse Generator", description: "Need a quick way out of a tricky situation? Generate creative, amusing, or even convincing excuses for any scenario.", folder: "site2" },
+    { title: "Advanced Name Generator", description: "Whether you're creating a character, brand, or project, this tool generates unique and memorable names tailored to your needs.", folder: "site3" },
+    { title: "Your Destiny", description: "Unravel the mysteries of your future! This website provides cryptic yet intriguing insights into what fate may hold for you.", folder: "site4" },
+    { title: "Philosophy Questions", description: "Challenge your mind with deep and thought-provoking philosophical questions that spark debates and expand perspectives.", folder: "site5" },
+    { title: "Which Vegetable Are You?", description: "Take this serious quiz to discover which vegetable best represents your personality based on your answers.", folder: "site6" },
+    { title: "Helpful Hint Generator", description: "Receive practical, witty, and unexpected hints for everyday life situations, ranging from productivity tips to clever life hacks.", folder: "site7" },
+    { title: "Forget-Me-Not AI", description: "An AI that helps you remember forgotten things.", folder: "site8" },
+    { title: "Click Me!", description: "A mysterious button. What happens when you click it? Only one way to find out!", folder: "site9" },
+    { title: "Rock", description: "rock", folder: "site10" },
+    { title: "Website", description: "A website about websites. Possibly the most self-aware web page you'll ever visit.", folder: "site11" },
+    { title: "Voting", description: "Cast your vote on the most serious and important topics. Democracy at its greatest!", folder: "site12" },
+    { title: "Award Winner", description: "An exclusive website dedicated to winners. What award did you win? Click to find out!", folder: "site13" },
+    { title: "Potato World", description: "A world dedicated entirely to potatoes. Learn everything you never knew you needed to know about this humble vegetable.", folder: "site14" },
+    { title: "Scroll to the Bottom", description: "Scroll down to the very bottom of the page and discover what awaits you there. Will you be surprised?", folder: "site15" },
+    { title: "Questions", description: "Get different questions and answer them, from the most trivial to the most profound. Become smarter with every question!", folder: "site16" },
+    { title: "Nothing", description: "There is nothing to see", folder: "site17" },
+    { title: "A Colorful Website", description: "Experience a vibrant explosion of colors that will dazzle your eyes and brighten your day.", folder: "site18" },
+    { title: "Diagram", description: "Explore diagram to visualize your ideas clearly.", folder: "site19" },
+    { title: "Tetris", description: "Play the classic game of Tetris and challenge your puzzle-solving skills.", folder: "site20" },
+    { title: "?", description: "?", folder: "site21" },
+    { title: "WakePedia", description: "", folder: "site23" }
 ];
 
 let currentPage = 1;
 const resultsPerPage = 15;
 
-// Search Algorithm
 function performSearch() {
     let query = document.getElementById("searchBox").value.toLowerCase().trim();
     let words = countWords(query);
@@ -53,7 +52,6 @@ function displayResults(results, page, wiki, query) {
     resultsContainer.innerHTML = "";
     paginationContainer.innerHTML = "";
 
-    // Always create the WakePedia link if wiki is true
     if (wiki) {
         let wakePediaLinkDiv = document.createElement("div");
         wakePediaLinkDiv.classList.add("result");
@@ -83,17 +81,17 @@ function displayResults(results, page, wiki, query) {
             titleContainer.classList.add("title-container");
 
             let icon = document.createElement("img");
-            icon.src = `site${site.folder.split('site')[1]}/icon.png`; // Use site-specific icon
+            icon.src = `${site.folder}/icon.png`;
             icon.alt = site.title;
             icon.classList.add("site-icon");
 
             icon.onerror = function () {
                 this.onerror = null;
-                this.src = "placeholder_icon.png"; // Ensure placeholder icon if original icon fails
+                this.src = "placeholder_icon.png";
             };
 
             let link = document.createElement("a");
-            link.href = `site${site.folder.split('site')[1]}/index.html`; // Adjust link based on folder
+            link.href = `${site.folder}/index.html`;
             link.innerText = site.title;
             link.target = "_blank";
 
@@ -129,7 +127,6 @@ function countWords(str) {
     return words.length;
 }
 
-// Start Searching
 document.getElementById("searchForm").addEventListener("submit", function (event) {
     event.preventDefault();
     currentPage = 1;
