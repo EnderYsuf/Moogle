@@ -1,0 +1,116 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background: #f8f9fa;
+}
+
+/* Search Container */
+.search-container {
+    margin: 50px 0;
+}
+
+.result {
+    margin-bottom: 10px;
+}
+
+.title-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.site-icon {
+    width: 24px;
+    height: 24px;
+}
+
+h1 {
+    font-size: 36px;
+    font-weight: bold;
+    color: #4285F4;
+}
+
+/* Search Bar */
+input {
+    width: 60%;
+    max-width: 600px;
+    padding: 12px 15px;
+    font-size: 18px;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    outline: none;
+    transition: box-shadow 0.2s;
+}
+
+input:focus {
+    box-shadow: 0 0 8px rgba(66, 133, 244, 0.5);
+}
+
+/* Results Container */
+#results {
+    max-width: 800px;
+    margin: 20px auto;
+    text-align: left;
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Individual Result */
+.result {
+    margin: 15px 0;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.result:last-child {
+    border-bottom: none;
+}
+
+/* Result Links */
+.result a {
+    font-size: 18px;
+    color: #1a0dab;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.result a:hover {
+    text-decoration: underline;
+}
+
+/* Description */
+.result p {
+    color: #4d5156;
+    font-size: 14px;
+}
+
+/* Pagination */
+#pagination {
+    margin-top: 20px;
+}
+
+.page-button {
+    display: inline-block;
+    margin: 5px;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    background: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.page-button:hover {
+    background: #e0e0e0;
+}
+
+.page-button.active {
+    background: #4285F4;
+    color: white;
+    font-weight: bold;
+}
