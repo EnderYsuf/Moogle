@@ -83,7 +83,7 @@ function displayResults(results, page, wiki, query) {
             titleContainer.classList.add("title-container");
 
             let icon = document.createElement("img");
-            icon.src = site.icon || "placeholder_icon.png"; // Use site-specific icon or fallback to placeholder
+            icon.src = `icons/${site.folder}/${site.icon}` || "placeholder_icon.png"; // Use site-specific icon or fallback to placeholder
             icon.alt = site.title;
             icon.classList.add("site-icon");
 
@@ -93,7 +93,7 @@ function displayResults(results, page, wiki, query) {
             };
 
             let link = document.createElement("a");
-            link.href = `https://EnderYsuf.github.io/${site.folder}`;
+            link.href = `site${site.folder.split('-')[0]}/index.html`; // Adjust link based on folder
             link.innerText = site.title;
             link.target = "_blank";
 
