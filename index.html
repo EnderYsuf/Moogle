@@ -5,18 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MOOGLE</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="icon.png">
 </head>
 <body>
-    <div class="search-container">
-        <h1>MOOGLE</h1>
-        <form id="searchForm">
-            <input type="text" id="searchBox" placeholder="Search...">
-            <button type="submit">Search</button>
-        </form>
+    <div class="wrapper">
+        <div class="content">
+            <div class="search-container">
+                <img src="logo.png" width="100px">
+                <form id="searchForm">
+                    <input type="text" id="searchBox" placeholder="Search...">
+                    <button type="submit">Search</button>
+                </form>
+            </div>
+            <div id="results">
+                <div class="main" id="mainPage">
+                    <button onclick="luck()">Feeling lucky?</button>
+                    <button onclick="displayAll()">All websites</button>
+                </div>
+            </div>
+            <div id="pagination"></div>
+        </div>
+        <footer>
+            <p>Moogle is a mock of google and contains only pre-written websites. Any coincidence is accidental</p>
+            <p>:)</p>
+        </footer>
     </div>
-    <div id="results"></div>
-    <div id="pagination"></div>
-
     <script src="main.js"></script>
 </body>
 </html>
