@@ -1,3 +1,4 @@
+// websites
 const sites = [
     { title: "Random Useful Facts", description: "Discover a collection of intriguing and practical facts that might surprise you and prove handy in everyday conversations.", folder: "site1" },
     { title: "Excuse Generator", description: "Need a quick way out of a tricky situation? Generate creative, amusing, or even convincing excuses for any scenario.", folder: "site2" },
@@ -20,12 +21,13 @@ const sites = [
     { title: "Diagram", description: "Explore diagram to visualize your ideas clearly.", folder: "site19" },
     { title: "Tetris", description: "Play the classic game of Tetris and challenge your puzzle-solving skills.", folder: "site20" },
     { title: "?", description: "?", folder: "site21" },
-    { title: "WakePedia", description: "", folder: "site23" }
+    { title: "Moogle 2.0", description: "A search engine that delivers the most accurate results. Only relevance and comfort.", folder: "site22" },
+    { title: "WakePedia", description: "An encyclopedia of things you never thought you'd need to know. Curated knowledge with a infinite quantity of topics.", folder: "site23" }
 ];
-
+// settings
 let currentPage = 1;
 const resultsPerPage = 15;
-
+// search
 function performSearch() {
     let query = document.getElementById("searchBox").value.toLowerCase().trim();
     let words = countWords(query);
@@ -42,7 +44,7 @@ function performSearch() {
 
     displayResults(filteredResults, currentPage, words === 1, query);
 }
-
+// display
 function displayResults(results, page, wiki, query) {
     const startIndex = (page - 1) * resultsPerPage;
     const endIndex = startIndex + resultsPerPage;
@@ -121,14 +123,44 @@ function displayResults(results, page, wiki, query) {
         paginationContainer.appendChild(button);
     }
 }
-
+// wakepedia important func
 function countWords(str) {
     const words = str.trim().split(/\s+/);
     return words.length;
 }
-
+// extra func
+function randomValue(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+// webpage actions
 document.getElementById("searchForm").addEventListener("submit", function (event) {
     event.preventDefault();
-    currentPage = 1;
+    const item = document.getElementById("searchBox").value.trim();
+
+    if (!item) return;
+
+    const currentUrl = new URL(window.location.href);
+    currentUrl.searchParams.set("item", item);
+    window.history.pushState({}, "", currentUrl.toString());
+
     performSearch();
 });
+
+function luck() {
+    window.location.href = `site${randomValue(1, sites.length)}/index.html`;
+}
+
+function displayAll() {
+    currentPage = 1;
+    displayResults(sites, currentPage, false, "");
+}
+// initialising upon load
+window.onload = function() {
+    const params = new URLSearchParams(window.location.search);
+    const item = params.get("item");
+
+    if (item) {
+        document.getElementById("searchBox").value = item;
+        performSearch();
+    }
+};
